@@ -1,0 +1,7 @@
+game["Run Service"].Heartbeat:Connect(function()
+	for _,npc in pairs(workspace.Level.Actors:GetChildren()) do
+    if npc:FindFirstChildOfClass("Highlight") then npc.Highlight:Destroy() end
+    highlight = Instance.new("Highlight")
+    highlight.Parent = npc
+  end
+end)

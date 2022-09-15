@@ -8,12 +8,11 @@ game["Run Service"].Heartbeat:Connect(function()
 				highlight.FillColor = Color3.fromRGB(0,255,0) 
 			end
 			if npc:FindFirstChild("Interact") then
-				npc.Interact.ObjectName.Value == "Civilian" then 
+				if npc.Interact.ObjectName.Value == "Civilian" then 
 					highlight.FillColor = Color3.fromRGB(255,255,255) 
 				end
-			end
-			if npc:FindFirstChild("Interact") then
-				npc.Interact.ObjectName.Value == "Ryan" or npc.Interact.ObjectName.Value == "Manager" or npc.Interact.ObjectName.Value == "SC Commander" or npc.Interact.ObjectName.Value == "Rose" or npc.Interact.ObjectName.Value == "Rivera" or npc.Interact.ObjectName.Value == "Falcon" or npc.Interact.ObjectName.Value == "Agent Nightshade" or npc.Interact.ObjectName.Value == "Agent Hemlock" then 
+				
+				if npc.Interact.ObjectName.Value == "Ryan" or npc.Interact.ObjectName.Value == "Manager" or npc.Interact.ObjectName.Value == "SC Commander" or npc.Interact.ObjectName.Value == "Rose" or npc.Interact.ObjectName.Value == "Rivera" or npc.Interact.ObjectName.Value == "Falcon" or npc.Interact.ObjectName.Value == "Agent Nightshade" or npc.Interact.ObjectName.Value == "Agent Hemlock" then 
 					highlight.FillColor = Color3.fromRGB(0,0,255) 
 				end
 			end

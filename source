@@ -1,11 +1,22 @@
 game["Run Service"].Heartbeat:Connect(function()
-	for _,obj in pairs(workspace:GetDescendants()) do
-		if not obj.Parent:FindFirstChildOfClass("Humanoid") then return end
-		npc = obj.Parent
-		if npc:FindFirstChildOfClass("Highlight") then return end
-		highlight = Instance.new("Highlight")
-		highlight.Parent = npc
-		if game.Players:FindFirstChild(npc.Name) then highlight.FillColor = Color3.fromRGB(0,255,0) end
-		if npc:FindFirstChild("Interact") and npc.Interact.ObjectName.Value == "Civilian" then highlight.FillColor = Color3.fromRGB(0,255,200) end
+	for _,npc in pairs(workspace.Level:GetDescendants()) do
+		if npc:FindFirstChildOfClass("Humanoid") then
+			if npc:FindFirstChildOfClass("Highlight") then return end
+			highlight = Instance.new("Highlight")
+			highlight.Parent = npc
+			if game.Players:FindFirstChild(npc.Name) then 
+				highlight.FillColor = Color3.fromRGB(0,255,0) 
+			end
+			if npc:FindFirstChild("Interact") then
+				npc.Interact.ObjectName.Value == "Civilian" then 
+					highlight.FillColor = Color3.fromRGB(255,255,255) 
+				end
+			end
+			if npc:FindFirstChild("Interact") then
+				npc.Interact.ObjectName.Value == "Ryan" or npc.Interact.ObjectName.Value == "Manager" or npc.Interact.ObjectName.Value == "SC Commander" or npc.Interact.ObjectName.Value == "Rose" or npc.Interact.ObjectName.Value == "Rivera" or npc.Interact.ObjectName.Value == "Falcon" or npc.Interact.ObjectName.Value == "Agent Nightshade" or npc.Interact.ObjectName.Value == "Agent Hemlock" then 
+					highlight.FillColor = Color3.fromRGB(0,0,255) 
+				end
+			end
+		end
 	end
 end)

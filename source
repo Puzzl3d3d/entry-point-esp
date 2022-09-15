@@ -1,7 +1,11 @@
 game["Run Service"].Heartbeat:Connect(function()
-	for _,npc in pairs(workspace.Level.Actors:GetChildren()) do
+	for _,obj in pairs(workspace:GetDescendants()) do
+		if not obj.Parent:FindFirstChildOfClass("Humanoid") then return end
+		npc = obj.Parent
 		if npc:FindFirstChildOfClass("Highlight") then return end
 		highlight = Instance.new("Highlight")
 		highlight.Parent = npc
+		if game.Players:FindFirstChild(npc.Name) then highlight.FillColor = Color3.fromRGB(0,255,0) end
+		if npc:FindFirstChild("Interact") and npc.Interact.ObjectName.Value == "Civilian" then highlight.FillColor = Color3.fromRGB(0,255,200) end
 	end
 end)

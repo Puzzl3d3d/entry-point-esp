@@ -13,7 +13,7 @@ game.Players.PlayerAdded:Connect(function()
 		highlight.Parent = char
 		highlight.FillColor = Color3.fromRGB(0,255,0) 
 	end)
-)
+end)
 
 for _,npc in pairs(workspace.Level.Actors:GetDescendants()) do
 	if npc:FindFirstChildOfClass("Humanoid") then
